@@ -16,9 +16,19 @@
     height: 40px;
     justify-content: center;
     width: 150px;
-    &--ativo {
-      background-color: $blue;
+    &__massas--ativo{
+      background-color: $massas;
       color: white;
+    }
+    &__carnes--ativo {
+      background-color: $carnes;
+      color: white;
+    }
+    &__combos--ativo {
+      background-color: $combos;
+    }
+    &__veganos--ativo {
+      background-color: $veganos;
     }
     &:hover {
       cursor: pointer;

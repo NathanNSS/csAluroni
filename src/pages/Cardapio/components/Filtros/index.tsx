@@ -29,7 +29,7 @@ export default function Filtros({ filtro, setFiltro }: Props) {
                     key={opcao.id}
                     className={`
                         ${styles.filtros__filtro}
-                        ${filtro === opcao.id ? styles['filtros__filtro--ativo'] : ""} 
+                        ${filtro === opcao.id ? styles[`filtros__filtro__${opcao.label.toLocaleLowerCase()}--ativo`] : ""} 
                     `}
                     onClick={() => selecionarFiltro(opcao)}
                 >
