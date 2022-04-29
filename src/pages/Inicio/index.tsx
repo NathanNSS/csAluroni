@@ -5,11 +5,16 @@ import nossaCasa from "assets/nossa_casa.png";
 
 import styles from "./Inicio.module.scss";
 import stylesTema from "styles/Tema.module.scss";
+import { useNavigate } from "react-router-dom";
+import { Prato } from "types";
 
 export default function Inicio() {
 	let pratosRecomendados = [...cardapio];
 	pratosRecomendados = pratosRecomendados.sort(() => 0.5 - Math.random()).splice(0, 3);
-
+	const navigate = useNavigate();
+	function detalhePrato(prato: Prato) {
+		navigate(`prato/${prato.id}`, { state: { prato } });
+	}
 	return (
 		<section>
 			<h3 className={stylesTema.titulo}>
@@ -20,8 +25,9 @@ export default function Inicio() {
 					<div key={item.id} className={styles.recomendado}>
 						<div className={styles.recomendado__imagem}>
 							<img src={item.photo} alt={item.title} />
+							<h4 className={styles.recomendado__imagem__titulo}>{item.title}</h4>
 						</div>
-						<button className={styles.recomendado__botao}>
+						<button className={styles.recomendado__botao} onClick={() => detalhePrato(item)}>
 							Ver mais
 						</button>
 					</div>
